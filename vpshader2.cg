@@ -1,0 +1,21 @@
+struct a2vConnector
+{
+    float4 objCoord;
+    float2 texCoord;
+};
+
+struct v2fConnector
+{
+    float4 projCoord : POSITION;
+    float2 texCoord  : TEXCOORD0;
+};
+
+v2fConnector main (a2vConnector a2v)
+{
+    v2fConnector v2f;
+    
+    v2f.projCoord = a2v.objCoord;
+    v2f.texCoord  = a2v.texCoord;
+
+    return v2f;
+}
